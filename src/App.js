@@ -2,11 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
 //REGISTER FORM
-import RegisterForm from "./RegisterForm";
+import ApplicationForm from "./ApplicationForm";
 //HEADER
 import Typography from "@material-ui/core/Typography";
 //CONTEXT
-import UserContextProvider from "./RegisterForm/UserContext";
+import ApplicantContextProvider from "./ApplicationForm/ApplicantContext";
 const useStyles = makeStyles(theme => ({
   root: {
     minHeight: "100vh",
@@ -40,21 +40,21 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const classes = useStyles();
   return (
-    <UserContextProvider>
+    <ApplicantContextProvider>
       <Grid container className={classes.root}>
         <Grid item className={classes.header} xs={12} md={4}>
           <Typography variant='h3' className={classes.title}>
             Registration
           </Typography>
           <Typography variant='h5' className={classes.subtitle}>
-            Complete all 3 steps to finish registration process
+            Complete all 5 steps to finish Application process
           </Typography>
         </Grid>
         <Grid item xs={12} md={8}>
-          <RegisterForm />
+          <ApplicationForm />
         </Grid>
       </Grid>
-    </UserContextProvider>
+    </ApplicantContextProvider>
   );
 }
 
