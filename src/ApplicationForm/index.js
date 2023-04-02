@@ -7,9 +7,10 @@ import Attachments from "./Attachments";
 import FormComplete from "./FormComplete";
 import axios from "axios";
 //GENERAL
-import { Box, Typography, Snackbar, SnackbarContent } from "@material-ui/core";
+import { Box, Typography, Snackbar, SnackbarContent} from "@material-ui/core";
 import ErrorIcon from "@material-ui/icons/Error";
 //STEPPER
+
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -52,6 +53,15 @@ const useStyles = makeStyles(theme => ({
   },
   icon: {
     marginRight: theme.spacing(1)
+  },
+  footer:{
+      textAlign: "center",
+      padding: "3px",
+      marginTop:"15%"
+  },
+  footer1:{
+    textAlign: "center",
+    padding: "3px",
   }
 }));
 
@@ -107,13 +117,13 @@ export default props => {
   const getStepContent = step => {
     switch (step) {
       case 0:
-        return <Attachments/>;
+        return <GetStarted/>;
       case 1:
         return <BasicInformation/>;
       case 2:
         return <OtherDetails />;
       case 3:
-        return <GetStarted/>;
+        return <Attachments/>;
       case 4:
         return <ApplicantSummary />;
       default:
@@ -226,8 +236,19 @@ export default props => {
       {completed && (
         <Box className={(classes.root, classes.center)}>
           <FormComplete />
+          
         </Box>
       )}
+      {activeStep === 0 && (
+      <footer className={classes.footer} >
+        <p>© Copyright 2023 | Upeosoft Limited</p>
+      </footer>
+        )}
+        {activeStep >= 1 && (
+      <footer className={classes.footer1} >
+        <p>© Copyright 2023 | Upeosoft Limited</p>
+      </footer>
+        )}
     </Fragment>
   );
 };

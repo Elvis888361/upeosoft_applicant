@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 export default props => {
   const classes = useStyles();
   const [state] = useContext(ApplicantContext);
-  const { salutation, last_name, first_name, middle_name, student_email_id, student_mobile_number,kcse_grade,student_category,program,academic_year,academic_term,date_of_birth,gender,address_1,city,nationality,country,image,kcse_certificate} = state.user;
+  const { salutation, last_name, first_name, middle_name, student_email_id, student_mobile_number,kcse_grade,student_category,program,academic_year,academic_term,date_of_birth,gender,address_1,city,nationality,country,kcse_certificate} = state.user;
   return (
     <Fragment>
       <Grid container className={classes.summary}>
@@ -29,7 +29,7 @@ export default props => {
           <Typography variant='h4'>Confirm Your Aplication.</Typography>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant='body2'><img src={kcse_certificate} alt="..." class="rounded-circle"/></Typography>
+          <Typography variant='body2'>{kcse_certificate != null && <img src={kcse_certificate} alt="" />}<span>{kcse_certificate}</span></Typography>
         </Grid>
         <Grid item xs={12} lg={4}>
           <Typography variant='h6'>Full Name</Typography>
