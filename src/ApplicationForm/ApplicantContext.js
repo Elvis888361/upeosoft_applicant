@@ -17,6 +17,7 @@ export default props => {
       pdfFile:"",
       pdfIdFile:"",
       pdfPassportFile:"",
+      phoneNumber:"",
       academic_year:"",
       academic_term:"",
       date_of_birth: new Date().toISOString().slice(0, 10),

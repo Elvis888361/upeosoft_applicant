@@ -23,7 +23,6 @@ export default props => {
         reader.readAsDataURL(selectedFile)
         reader.onload=(e)=>{
           setKcse_certificate(e.target.result)
-          console.log(e.target.result)
         }
       }else{
         setKcse_certificate(null)
@@ -42,7 +41,6 @@ export default props => {
         reader.readAsDataURL(selectedFile)
         reader.onload=(e)=>{
           setPDFFile(e.target.result)
-          console.log(e.target.result)
         }
       }else{
         setPDFFile(null)
@@ -61,7 +59,6 @@ export default props => {
         reader.readAsDataURL(selectedFile)
         reader.onload=(e)=>{
           setPDFIdFile(e.target.result)
-          console.log(e.target.result)
         }
       }else{
         setPDFIdFile(null)
@@ -81,7 +78,6 @@ export default props => {
         reader.readAsDataURL(selectedFile)
         reader.onload=(e)=>{
           setPDFPassportFile(e.target.result)
-          console.log(e.target.result)
         }
       }else{
         setPDFPassportFile(null)

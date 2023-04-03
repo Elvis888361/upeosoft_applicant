@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: "rgb(47,33,95)",
     [theme.breakpoints.down("sm")]: {
       flexGrow: 1,
     },
@@ -31,8 +31,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
   },
   titleWrap:{
-    display:"none",
-    marginBottom:"30%"
+    marginBottom:"40%"
   },
   subtitle: {
     color: theme.palette.primary.light,
@@ -55,21 +54,18 @@ function App() {
     <ApplicantContextProvider>
       <Grid container className={classes.root}>
         <Grid item className={classes.header} xs={12} md={4}>
-          <div>
-            <Typography className={classes.titleWrap}>
+
+            <div className={classes.titleWrap}>
               <img src="ittc_logo.png" alt="" className={classes.imgs} />
-              <Typography variant="h3" className={classes.title}>
-                INTERNATIONAL
+              <Typography variant="h6" className={classes.title}>
+              International Teaching & Training Centre - ITTC
               </Typography>
-              <Typography className={classes.title}>
-                TEACHING AND TRAINING CENTER-KITENGELA CAMPUS
-              </Typography>
-            </Typography>
-            <Typography variant="h3" className={classes.title}>
+            </div>
+              
+            <Typography variant="h5" className={classes.title}>
               Application Form
             </Typography>
-          </div>
-          <Typography variant="h5" className={classes.subtitle}>
+          <Typography variant="h6" className={classes.subtitle}>
             Complete all 5 steps to finish Application process
           </Typography>
         </Grid>

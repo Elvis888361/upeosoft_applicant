@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ApplicantContext } from "./ApplicantContext";
 import { isWidthDown } from "@material-ui/core/withWidth";
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+
 //GENERAL
 import {
   FormControl,
@@ -18,28 +20,29 @@ export default (props) => {
   const { user, errors } = state;
   const dateLimit = new Date();
   dateLimit.setFullYear(dateLimit.getFullYear() - 15);
-  const [gender, setGender] = React.useState("");
-  const [country, setCountry] = React.useState("");
-  const API_URL =
-    "http://127.0.0.1:8002/api/method/upeoeducation.services.rest.";
-  const handleChangeCountry = (event) => {
-    setCountry(event.target.value);
-    user.country = event.target.value;
+  const [countrys, setCountrys] = useState('');
+  const [regions, setRegions] = useState('');
+  const handleCountrysChange = (val) => {
+    setCountrys(val);
+    user.country = val;
+    setRegions(''); // Reset the region when a new country is selected
   };
+
+  const handleRegionChange = (val) => {
+    setRegions(val);
+    user.city=val;
+  };
+  const [gender, setGender] = React.useState("");
+  const API_URL =
+    "http://127.0.0.1:8003/api/method/upeoeducation.services.rest.";
+
   const handleChangeGender = (event) => {
     setGender(event.target.value);
     user.gender = event.target.value;
   };
-  const [countries, setCountries] = useState([]);
+
   const [genders, setGenders] = useState([]);
-  useEffect(() => {
-    async function fetchCountryData() {
-      const response = await axios.get(API_URL + "get_countries");
-      const data = JSON.parse(response.data.message);
-      setCountries(data);
-    }
-    fetchCountryData();
-  }, []);
+ 
   useEffect(() => {
     async function fetchGenderData() {
       const response = await axios.get(API_URL + "get_gender");
@@ -48,6 +51,7 @@ export default (props) => {
     }
     fetchGenderData();
   }, []);
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} lg={6}>
@@ -106,22 +110,6 @@ export default (props) => {
       </Grid>
       <Grid item xs={12} lg={6}>
         <TextField
-          placeholder="Type your Town here"
-          name="city"
-          label="City"
-          value={user.city}
-          type="text"
-          variant="outlined"
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          error={!!errors["city"]}
-          fullWidth
-        />
-      </Grid>
-      <Grid item xs={12} lg={6}>
-        <TextField
           type="text"
           name="nationality"
           label="Nationality"
@@ -135,8 +123,21 @@ export default (props) => {
           fullWidth
         />
       </Grid>
-      <Grid item xs={12} lg={6}>
-        <FormControl fullWidth variant="outlined">
+
+      
+      <Grid item xs={12} >
+      <div>
+        <CountryDropdown
+        value={countrys}
+        onChange={handleCountrysChange}
+      />
+      <RegionDropdown
+        country={countrys}
+        value={regions}
+        onChange={handleRegionChange}
+      />
+    </div>
+        {/* <FormControl fullWidth variant="outlined">
           <InputLabel id="demo-simple-select-label">Country</InputLabel>
           <Select
             label="Country"
@@ -151,7 +152,7 @@ export default (props) => {
               </MenuItem>
             ))}
           </Select>
-        </FormControl>
+        </FormControl> */}
       </Grid>
     </Grid>
   );
