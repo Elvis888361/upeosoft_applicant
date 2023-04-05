@@ -76,7 +76,7 @@ export default props => {
   const [open, setOpen] = React.useState(false);
   const [state, setState] = useContext(ApplicantContext);
   const API_URL =
-    "https://education.upeosoft.com/app/api/method/upeoeducation.services.rest.create_student_data";
+    "https://education.upeosoft.com/api/method/upeoeducation.services.rest.create_student_data";
   const handleSubmitData=()=>{
       async function post() {
         try {

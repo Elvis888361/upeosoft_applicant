@@ -22,7 +22,7 @@ export default (props) => {
   const [student_category, setStudent_Category] = React.useState("");
 
   const API_URL =
-    "https://education.upeosoft.com/app/api/method/upeoeducation.services.rest.";
+    "https://education.upeosoft.com/api/method/upeoeducation.services.rest.";
   const handleChangeSalutation = (event) => {
     setSalutation(event.target.value);
     user.salutation = event.target.value;

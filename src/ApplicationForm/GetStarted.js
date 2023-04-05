@@ -15,7 +15,7 @@ export default props => {
   const [state] = useContext(ApplicantContext);
   const { user} = state;
   const API_URL =
-    "https://education.upeosoft.com/app/api/method/upeoeducation.services.rest.create_phone_number";
+    "https://education.upeosoft.com/api/method/upeoeducation.services.rest.create_phone_number";
   
   const [phoneNumbers, setPhoneNumbers] = useState('');
   const [isValid, setIsValid] = useState(false);
