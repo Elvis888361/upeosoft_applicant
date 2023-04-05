@@ -20,8 +20,9 @@ export default (props) => {
   const [academic_year, setAcademic_year] = React.useState("");
   const [academic_term, setAcademic_term] = React.useState("");
   const [student_category, setStudent_Category] = React.useState("");
+
   const API_URL =
-    "http://127.0.0.1:8003/api/method/upeoeducation.services.rest.";
+    "https://education.upeosoft.com/app/api/method/upeoeducation.services.rest.";
   const handleChangeSalutation = (event) => {
     setSalutation(event.target.value);
     user.salutation = event.target.value;

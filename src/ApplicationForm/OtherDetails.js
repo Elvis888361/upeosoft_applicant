@@ -36,7 +36,7 @@ export default (props) => {
   };
   const [gender, setGender] = React.useState("");
   const API_URL =
-    "http://127.0.0.1:8003/api/method/upeoeducation.services.rest.";
+    "https://education.upeosoft.com/app/api/method/upeoeducation.services.rest.";
 
   const handleChangeGender = (event) => {
     setGender(event.target.value);
