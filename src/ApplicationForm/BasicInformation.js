@@ -122,7 +122,7 @@ export default (props) => {
             minLength: 3,
             maxLength: 20,
           }}
-          error={!!errors["surname"]}
+          error={!!errors["last_name"]}
           fullWidth
         />
       </Grid>
@@ -142,7 +142,7 @@ export default (props) => {
             minLength: 3,
             maxLength: 20,
           }}
-          error={!!errors["firstname"]}
+          error={!!errors["first_name"]}
           fullWidth
         />
       </Grid>
@@ -223,7 +223,8 @@ export default (props) => {
           <Select
             label="Student Category"
             id="demo-simple-select"
-            
+            required
+            error={!!errors["student_category"]}
             value={student_category}
             onChange={handleChangeStudent_Category}
             name="student_category"
@@ -243,6 +244,8 @@ export default (props) => {
             label="Program"
             id="demo-simple-select"
             value={program}
+            required
+            error={!!errors["program"]}
             onChange={handleChangeProgram}
             name="program"
           >
@@ -261,6 +264,8 @@ export default (props) => {
           <Select
             label="Academic Year"
             id="demo-simple-select"
+            required
+            error={!!errors["academic_year"]}
             value={academic_year}
             onChange={handleChangeAcademic_Year}
             name="academic_year"
@@ -278,6 +283,8 @@ export default (props) => {
           <InputLabel id="demo-simple-select-label">Academic Term</InputLabel>
           <Select
             label="Academic Term"
+            required
+            error={!!errors["academic_term"]}
             id="demo-simple-select"
             value={academic_term}
             onChange={handleChangeAcademic_Term}
