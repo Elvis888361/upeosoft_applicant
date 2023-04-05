@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { ApplicantContext } from "./ApplicantContext";
 import { isWidthDown } from "@material-ui/core/withWidth";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import { Container, Form, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //GENERAL
 import {
@@ -126,33 +128,34 @@ export default (props) => {
 
       
       <Grid item xs={12} >
-      <div>
-        <CountryDropdown
-        value={countrys}
-        onChange={handleCountrysChange}
-      />
-      <RegionDropdown
-        country={countrys}
-        value={regions}
-        onChange={handleRegionChange}
-      />
-    </div>
-        {/* <FormControl fullWidth variant="outlined">
-          <InputLabel id="demo-simple-select-label">Country</InputLabel>
-          <Select
-            label="Country"
-            id="demo-simple-select"
-            value={country}
-            onChange={handleChangeCountry}
-            name="country"
-          >
-            {countries.map((country, index) => (
-              <MenuItem key={index} value={country.country_name}>
-                {country.country_name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl> */}
+    <Container>
+      <Row>
+        <Col md={6}>
+          <Form.Group>
+            <Form.Label>Country:</Form.Label>
+            <CountryDropdown
+              value={countrys}
+              onChange={handleCountrysChange}
+              className="form-control"
+              style={{ maxWidth: '100%' }}
+              showDefaultOption={false}
+            />
+          </Form.Group>
+        </Col>
+        <Col md={6}>
+          <Form.Group>
+            <Form.Label>Region:</Form.Label>
+            <RegionDropdown
+             country={countrys}
+             value={regions}
+             onChange={handleRegionChange}
+              className="form-control"
+              style={{ maxWidth: '100%' }}
+            />
+          </Form.Group>
+        </Col>
+      </Row>
+    </Container>
       </Grid>
     </Grid>
   );

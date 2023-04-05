@@ -93,10 +93,11 @@ export default props => {
       <Grid item xs={12} lg={6}>
         <TextField
           type='file'
-          inputProps={{ accept: 'image/*, .xlsx, .xls, .csv, .pdf, .pptx, .pptm, .ppt' }}
+          inputProps={{ accept: '.pdf' }}
           variant='outlined'
           margin='normal'
           onChange={previewFile}
+          helperText='Upload Scanned Certificate'
           InputLabelProps={{
             shrink: true
           }}
@@ -108,12 +109,13 @@ export default props => {
         <TextField
           name='high_school_leaving_certificate'
           label='High School Leaving Certificate'
-          inputProps={{ accept: 'image/*, .xlsx, .xls, .csv, .pdf, .pptx, .pptm, .ppt' }}
+          inputProps={{ accept: '.pdf' }}
           value={user.high_school_leaving_certificate}
           type='file'
           onChange={handleChange1}
           variant='outlined'
           margin='normal'
+          helperText='Upload Scanned Certificate'
           InputLabelProps={{
             shrink: true
           }}
@@ -127,12 +129,12 @@ export default props => {
           type='file'
           name='national_id'
           label='National Id'
-          inputProps={{ accept: 'image/*, .xlsx, .xls, .csv, .pdf, .pptx, .pptm, .ppt' }}
+          inputProps={{ accept: '.pdf'}}
           defaultValue={user.national_id}
           variant='outlined'
           onChange={handleChangeId}
           margin='normal'
-          helperText='If Applicable'
+          helperText='Upload Scanned Image'
           InputLabelProps={{
             shrink: true
           }}
@@ -145,10 +147,11 @@ export default props => {
           name='image'
           label='Passport Image'
           value={user.image}
-          inputProps={{ accept: 'image/*, .xlsx, .xls, .csv, .pdf, .pptx, .pptm, .ppt' }}
+          inputProps={{ accept: '.pdf' }}
           onChange={handleChangePassport}
           type='file'
           variant='outlined'
+          helperText='Upload Scanned Image'
           margin='normal'
           InputLabelProps={{
             shrink: true
