@@ -110,25 +110,6 @@ export default (props) => {
       </Grid>
       <Grid item xs={12} lg={3}>
         <TextField
-          placeholder="Type your Surname here"
-          name="last_name"
-          label="Surname"
-          value={user.last_name}
-          variant="outlined"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          required
-          inputProps={{
-            minLength: 3,
-            maxLength: 20,
-          }}
-          error={!!errors["last_name"]}
-          fullWidth
-        />
-      </Grid>
-      <Grid item xs={12} lg={3}>
-        <TextField
           placeholder="Type your firstname here"
           name="first_name"
           label="Firstname"
@@ -147,7 +128,7 @@ export default (props) => {
           fullWidth
         />
       </Grid>
-      <Grid item xs={12} lg={4}>
+      <Grid item xs={12} lg={3}>
         <TextField
           placeholder="Type your othername here"
           name="middle_name"
@@ -162,6 +143,25 @@ export default (props) => {
             maxLength: 20,
           }}
           error={!!errors["middle_name"]}
+          fullWidth
+        />
+      </Grid>
+      <Grid item xs={12} lg={4}>
+      <TextField
+          placeholder="Type your Surname here"
+          name="last_name"
+          label="Surname"
+          value={user.last_name}
+          variant="outlined"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          required
+          inputProps={{
+            minLength: 3,
+            maxLength: 20,
+          }}
+          error={!!errors["last_name"]}
           fullWidth
         />
       </Grid>
@@ -289,7 +289,7 @@ export default (props) => {
             id="demo-simple-select"
             value={academic_term}
             onChange={handleChangeAcademic_Term}
-            name="academic_year"
+            name="academic_term"
           >
             {academic_terms.map((academic_term, index) => (
               <MenuItem key={index} value={academic_term.term_name}>
